@@ -26,7 +26,7 @@ class _HomeAppState extends State<HomeApp> {
     final dio = Dio();
     final response = await dio.get('https://dummyjson.com/products');
 
-    // print("data == ${response.data}");
+    // print("data::: ${response.extra.entries}");
     final data = response.data['products'];
     setState(() {
       products =
