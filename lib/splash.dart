@@ -1,5 +1,6 @@
-import 'package:ecommerce_app/screens/home.dart';
+import 'package:ecommerce_app/presentation/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -19,17 +20,13 @@ class _SplashState extends State<Splash> {
   _navigatetoHome() async {
     await Future.delayed(Duration(seconds: 2), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Homepage()));
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: FlutterLogo(
-          size: 50,
-        ),
-      ),
+    return Scaffold(
+      body: Center(child: Image.asset('assets/logo.png')),
     );
   }
 }

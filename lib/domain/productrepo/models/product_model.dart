@@ -35,7 +35,7 @@ class ProductModel {
     brand = json['brand'];
     category = json['category'];
     thumbnail = json['thumbnail'];
-    images = json['images'].cast<String>();
+    images = List<String>.from(json['images'] ?? []);
   }
 
   Map<String, dynamic> toJson() {
