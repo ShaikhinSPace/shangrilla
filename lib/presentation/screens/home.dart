@@ -28,8 +28,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          toolbarHeight: 100 - 35,
           backgroundColor: const Color.fromARGB(255, 222, 222, 222),
-          title: Center(child: Image.asset('assets/banner.png')),
+          title: Center(
+              child: Image.asset(
+            'assets/banner.png',
+            fit: BoxFit.fill,
+          )),
         ),
         body: AllProductsPage());
   }

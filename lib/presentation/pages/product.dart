@@ -75,16 +75,16 @@ class _AllProductsPageState extends State<AllProductsPage> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              Center(
-                                child: FloatingActionButton.small(
-                                  backgroundColor: Colors.white,
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.shopping_cart,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              )
+                              // Center(
+                              //   child: FloatingActionButton.small(
+                              //     backgroundColor: Colors.white,
+                              //     onPressed: () {},
+                              //     child: Icon(
+                              //       Icons.shopping_cart,
+                              //       color: Colors.black,
+                              //     ),
+                              //   ),
+                              // )
                             ],
                           ),
                         ),
