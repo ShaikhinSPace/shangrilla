@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/domain/api/callproducts.dart';
+import 'package:ecommerce_app/domain/math.dart';
 import 'package:ecommerce_app/domain/productrepo/models/product_model.dart';
 import 'package:ecommerce_app/presentation/pages/product_detail.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
           );
         } else {
           final products = snapshot.data!;
+
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -38,6 +40,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
             itemCount: products.length,
             itemBuilder: (context, index) {
               final product = products[index];
+
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
@@ -50,6 +53,8 @@ class _AllProductsPageState extends State<AllProductsPage> {
                                 )));
                   },
                   child: Card(
+                    color: Colors.white,
+                    elevation: 5,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -58,7 +63,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
                             borderRadius: BorderRadius.circular(7),
                             child: Image.network(
                               product.thumbnail ?? '',
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
@@ -67,24 +72,55 @@ class _AllProductsPageState extends State<AllProductsPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Center(
-                                child: Text(
-                                  product.title ?? '',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                              Text(
+                                product.title ?? '',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              // Center(
-                              //   child: FloatingActionButton.small(
-                              //     backgroundColor: Colors.white,
-                              //     onPressed: () {},
-                              //     child: Icon(
-                              //       Icons.shopping_cart,
-                              //       color: Colors.black,
-                              //     ),
-                              //   ),
-                              // )
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        size: 15,
+                                        Icons.star,
+                                        color: Color.fromARGB(255, 255, 187, 0),
+                                      ),
+                                      Text(
+                                        "${product.rating}/5",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    "only ${product.stock} left",
+                                    style: TextStyle(fontSize: 10),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "\$${calculatePrice((product.discountPercentage)! / 100, product.price).toStringAsFixed(0)}",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  RichText(
+                                      text: TextSpan(
+                                          text: product.price.toString(),
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 10,
+                                              decoration:
+                                                  TextDecoration.lineThrough)))
+                                ],
+                              ),
                             ],
                           ),
                         ),
