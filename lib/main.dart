@@ -6,7 +6,7 @@ void main() {
 }
 
 class HomeApp extends StatefulWidget {
-  const HomeApp({Key? key}) : super(key: key);
+  const HomeApp({super.key});
 
   @override
   State<HomeApp> createState() => _HomeAppState();
@@ -15,7 +15,7 @@ class HomeApp extends StatefulWidget {
 class _HomeAppState extends State<HomeApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: Splash(),
       ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class ProductsDetail extends StatefulWidget {
   final ProductModel product;
-  const ProductsDetail({Key? key, required this.product}) : super(key: key);
+  const ProductsDetail({super.key, required this.product});
 
   @override
   State<ProductsDetail> createState() => _ProductsDetailState();
@@ -73,7 +73,7 @@ class _ProductsDetailState extends State<ProductsDetail> {
                           },
                           itemCount: widget.product.images!.length,
                         )
-                      : Center(
+                      : const Center(
                           child: Text('No images available'),
                         ),
                 ),
@@ -89,35 +89,35 @@ class _ProductsDetailState extends State<ProductsDetail> {
                       children: [
                         Text(
                           widget.product.title ?? '',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25 - 5 - 5 + 5),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             Text(
                               "\$${calculatePrice((widget.product.discountPercentage)! / 100, widget.product.price).toStringAsFixed(0)}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             RichText(
                                 text: TextSpan(
                                     text: widget.product.price.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 10 + 11 - 1 - 1 - 5,
                                         decoration:
                                             TextDecoration.lineThrough))),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(
                               "${widget.product.discountPercentage}% off",
-                              style: TextStyle(color: Colors.red),
+                              style: const TextStyle(color: Colors.red),
                             )
                           ],
                         ),
@@ -126,20 +126,20 @@ class _ProductsDetailState extends State<ProductsDetail> {
                           children: [
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   size: 15,
                                   Icons.star,
                                   color: Color.fromARGB(255, 255, 187, 0),
                                 ),
                                 Text(
                                   "${widget.product.rating}/5",
-                                  style: TextStyle(fontSize: 10),
+                                  style: const TextStyle(fontSize: 10),
                                 ),
                               ],
                             ),
                             Text(
                               "only ${widget.product.stock} left",
-                              style: TextStyle(fontSize: 10),
+                              style: const TextStyle(fontSize: 10),
                             )
                           ],
                         ),
@@ -148,12 +148,12 @@ class _ProductsDetailState extends State<ProductsDetail> {
                   ),
                 ),
                 ElevatedButton(
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                       shadowColor: MaterialStatePropertyAll(
                           Color.fromARGB(169, 0, 0, 0)),
                       backgroundColor: MaterialStatePropertyAll(Colors.black)),
                   onPressed: () {},
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Icon(

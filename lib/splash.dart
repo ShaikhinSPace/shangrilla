@@ -1,6 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:ecommerce_app/presentation/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -18,9 +19,9 @@ class _SplashState extends State<Splash> {
   }
 
   _navigatetoHome() async {
-    await Future.delayed(Duration(seconds: 2), () {});
+    await Future.delayed(const Duration(seconds: 2), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   @override

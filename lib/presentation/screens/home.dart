@@ -4,10 +4,9 @@ import 'package:ecommerce_app/presentation/pages/product.dart';
 import 'package:ecommerce_app/presentation/screens/account.dart';
 import 'package:ecommerce_app/presentation/screens/cart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -35,10 +34,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _children = [
-      AllProductsPage(),
-      CartScreen(),
-      AccountScreen()
+    final List<Widget> children = [
+      const AllProductsPage(),
+      const CartScreen(),
+      const AccountScreen()
     ];
 
     return Scaffold(
@@ -51,11 +50,11 @@ class _HomePageState extends State<HomePage> {
           fit: BoxFit.fill,
         )),
       ),
-      body: _children[_currentIndex],
+      body: children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTapped,
         currentIndex: _currentIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart), label: 'Cart'),
