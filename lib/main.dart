@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/presentation/pages/login.dart';
 import 'package:ecommerce_app/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +16,10 @@ class HomeApp extends StatefulWidget {
 class _HomeAppState extends State<HomeApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Splash(),
-      ),
+    return MaterialApp(
+      title: 'Amazon Lite',
+      home: Splash(),
+      routes: {'/login': (context) => LoginScreen()},
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/domain/math.dart';
-import 'package:ecommerce_app/domain/productrepo/models/product_model.dart';
+import 'package:ecommerce_app/domain/api/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductsDetail extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class Cart {
+class CartModel {
   int? id;
   List<Product>? products;
   int? total;
@@ -9,7 +9,7 @@ class Cart {
   int? totalProducts;
   int? totalQuantity;
 
-  Cart({
+  CartModel({
     this.id,
     this.products,
     this.total,
@@ -19,7 +19,7 @@ class Cart {
     this.totalQuantity,
   });
 
-  Cart copyWith({
+  CartModel copyWith({
     int? id,
     List<Product>? products,
     int? total,
@@ -28,7 +28,7 @@ class Cart {
     int? totalProducts,
     int? totalQuantity,
   }) =>
-      Cart(
+      CartModel(
         id: id ?? this.id,
         products: products ?? this.products,
         total: total ?? this.total,
@@ -38,11 +38,12 @@ class Cart {
         totalQuantity: totalQuantity ?? this.totalQuantity,
       );
 
-  factory Cart.fromRawJson(String str) => Cart.fromJson(json.decode(str));
+  factory CartModel.fromRawJson(String str) =>
+      CartModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Cart.fromJson(Map<String, dynamic> json) => Cart(
+  factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
         id: json["id"],
         products: List<Product>.from(
             json["products"].map((x) => Product.fromJson(x))),
