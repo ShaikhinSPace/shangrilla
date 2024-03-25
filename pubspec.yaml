@@ -10,6 +10,8 @@ dependencies:
   dio: ^5.4.1
   flutter:
     sdk: flutter
+  image_picker: ^1.0.7
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
